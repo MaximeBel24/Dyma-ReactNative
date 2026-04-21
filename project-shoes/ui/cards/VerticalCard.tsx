@@ -12,18 +12,18 @@ import Touchable from "@/ui/touchable/Touchable.android";
 import {useNavigation} from "@react-navigation/native";
 
 interface VerticalCardProps {
-    item: Shoe
-    isListScreen?: boolean
+    item: Shoe;
+    isListScreen?: boolean;
+    onPress: () => void;
 }
 
-export default function VerticalCard({ item, isListScreen = false }: VerticalCardProps) {
+export default function VerticalCard({ item, isListScreen = false, onPress }: VerticalCardProps) {
 
-    const navigation = useNavigation();
     const shoeColors = item.items.map((elem) => elem.color);
 
     return (
         <View style={styles.container}>
-            <Touchable onPress={() => navigation.navigate("Details")}>
+            <Touchable onPress={onPress}>
                 <View style={styles.touchableContainer}>
                     <View style={styles.imageContainer}>
                         <Image source={item.items[0].image} style={styles.image} />

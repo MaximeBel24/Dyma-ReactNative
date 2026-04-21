@@ -3,6 +3,7 @@ import {FlatList, StyleSheet} from "react-native";
 import VerticalCard from "@/ui/cards/VerticalCard";
 import ItemSeparator from "@/ui/separators/ItemSeparator";
 import {spaces} from "@/constants/spaces";
+import {useNavigation} from "@react-navigation/native";
 
 interface ShoesListProps {
     selectedBrand: string;
@@ -10,6 +11,8 @@ interface ShoesListProps {
 }
 
 export default function ShoesList({ selectedBrand, inputValue }: ShoesListProps) {
+
+    const navigation = useNavigation();
 
     const data = shoes
         .find((elem) => elem.brand === selectedBrand)
@@ -20,10 +23,14 @@ export default function ShoesList({ selectedBrand, inputValue }: ShoesListProps)
             elem.name.toLowerCase().includes(inputValue.toLowerCase())
         ): data;
 
+    const navigateToDetails = (id: string) => navigation.navigate("Details", {id})
+
     return (
         <FlatList
             data={filteredData}
-            renderItem={({ item }) => <VerticalCard item={item} />}
+            renderItem={({ item }) => (
+                <VerticalCard item={item} onPress={() => navigateToDetails(item.id)}/>
+            )}
             horizontal
             ItemSeparatorComponent={() => <ItemSeparator width={spaces.L} /> }
             contentContainerStyle={styles.listContainer}

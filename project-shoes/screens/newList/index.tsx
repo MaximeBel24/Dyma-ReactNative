@@ -1,20 +1,28 @@
-import {Text, View, StyleSheet, FlatList} from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import {colors} from "@/constants/colors";
 import {Shoe, shoes} from "@/data/shoes";
 import VerticalCard from "@/ui/cards/VerticalCard";
 import {spaces} from "@/constants/spaces";
 import ItemSeparator from "@/ui/separators/ItemSeparator";
+import {NavigationProp} from "@react-navigation/core";
 
-export default function NewsList() {
+
+interface NewsListProps {
+    navigation: NavigationProp<any>
+}
+
+export default function NewsList({ navigation }: NewsListProps) {
 
     // On filtre pour ne garder que les éléments qui existent (non undefined)
     const items = shoes
         .map((brand) => brand.stock.find((item) => item.new))
         .filter((item): item is Shoe => !!item);
 
+    const navigateToDetails = (id: string) => navigation.navigate("Details", { id });
+
     const renderItem = ({ item }: { item: Shoe }) => (
         <View style={styles.cardContainer}>
-            <VerticalCard item={item} isListScreen />
+            <VerticalCard item={item} isListScreen onPress={() => navigateToDetails(item.id)}/>
         </View>
     )
 

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, FlatList, SectionListRenderItem} from "react-native";
+import {View, StyleSheet, FlatList} from "react-native";
 import {NavigationProp, RouteProp} from "@react-navigation/core";
 import {RootStackParamList} from "@/types/navigation";
 import {Shoe, shoes} from "@/data/shoes";
@@ -22,9 +22,11 @@ export default function List({ route, navigation }: ListProps) {
         })
     })
 
+    const navigateToDetails = (id: string) => navigation.navigate("Details", { id })
+
     const renderItem= ({ item }: { item: Shoe}) => (
         <View style={styles.cardContainer}>
-            <VerticalCard isListScreen item={item} />
+            <VerticalCard isListScreen item={item} onPress={() => navigateToDetails(item.id)} />
         </View>
     )
 

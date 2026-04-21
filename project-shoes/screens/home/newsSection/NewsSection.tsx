@@ -25,10 +25,18 @@ export default function NewsSection({ selectedBrand }: NewsSectionProps) {
 
     const item = shoes
         .find((elem) => elem.brand === selectedBrand)
-        ?.stock.filter((item) => item.new) ?? [];
+        ?.stock.find((elem) => elem.new);
+
+    if (!item) {
+        return null
+    }
 
     const navigateToNewsList = () => {
         navigation.navigate("NewsList");
+    }
+
+    const navigateToDetails = () => {
+        navigation.navigate("Details", { id: item.id })
     }
 
     return (
@@ -37,7 +45,7 @@ export default function NewsSection({ selectedBrand }: NewsSectionProps) {
             // style={height < 400 ? landscapeStyle : styles.container}
         >
             <Banner text={"Nouveautés"} navigate={navigateToNewsList} />
-            {item[0] && <HorizontalCard item={item[0]} />}
+            <HorizontalCard item={item} onPress={navigateToDetails}/>
         </View>
     )
 }

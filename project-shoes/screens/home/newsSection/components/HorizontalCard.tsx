@@ -11,9 +11,10 @@ import Touchable from "@/ui/touchable/Touchable.android";
 
 interface HorizontalCardProps {
     item: Shoe
+    onPress?: () => void
 }
 
-export default function HorizontalCard({ item }: HorizontalCardProps) {
+export default function HorizontalCard({ item, onPress }: HorizontalCardProps) {
 
     // const { height } = useWindowDimensions();
     // const landscapeImageStyle: ImageStyle = {
@@ -29,7 +30,7 @@ export default function HorizontalCard({ item }: HorizontalCardProps) {
 
     return (
         <View style={styles.container}>
-            <Touchable styles={styles.touchableContainer}>
+            <Touchable styles={styles.touchableContainer} onPress={onPress}>
                 <View style={styles.touchableContainer}>
                     <View style={styles.descriptionContainer}>
                         <View>
