@@ -1,5 +1,6 @@
 import {useFonts} from "expo-font";
-import StackNavigator from "@/navigators/StackNavigator";
+import BottomTabsNavigator from "@/navigators/BottomTabsNavigator";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 export default function Index() {
 
@@ -11,6 +12,8 @@ export default function Index() {
     });
 
   return fontsLoaded ? (
-    <StackNavigator />
+      <SafeAreaProvider>
+          <BottomTabsNavigator />
+      </SafeAreaProvider>
   ) : null;
 }

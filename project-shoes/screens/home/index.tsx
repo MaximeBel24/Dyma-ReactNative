@@ -1,5 +1,5 @@
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Animated, StatusBar, StyleSheet, View} from "react-native";
+import {Animated, StyleSheet} from "react-native";
 import {colors} from "@/constants/colors";
 import SearchSection from "@/screens/home/searchSection/SearchSection";
 import ListSection from "@/screens/home/listSection/ListSection";
@@ -19,10 +19,10 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar />
-            <View
-                style={{ width: "100%", backgroundColor: "#000000"}}
-            />
+            {/*<StatusBar />*/}
+            {/*<View*/}
+            {/*    style={{ width: "100%", backgroundColor: "#000000"}}*/}
+            {/*/>*/}
                 <ScrollView
                     contentContainerStyle={styles.scrollViewContainer}
                     bounces={false}
@@ -42,9 +42,6 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
                         selectedBrand={selectedBrand}
                     />
                 </ScrollView>
-            <View
-                // style={{ width: "100%", backgroundColor: "#000000", flex: 106}}
-            />
         </SafeAreaView>
     )
 }
