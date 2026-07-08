@@ -19,7 +19,7 @@ export default function BrandsList({selectedBrand, setSelectedBrand }: BrandList
             bounces={false}
             keyExtractor={(item) => item.name}
             style={styles.listContainer}
-            ItemSeparatorComponent={() => <ItemSeparator width={spaces.S}/>}
+            ItemSeparatorComponent={() => <ItemSeparator width={spaces.XS}/>}
             renderItem={({ item, index }) => (
                 <BrandItem
                     item={item}

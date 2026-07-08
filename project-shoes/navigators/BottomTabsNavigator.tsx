@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import StackNavigator from "@/navigators/StackNavigator";
+import HomeStackNavigator from "@/navigators/HomeStackNavigator";
 import Favorites from "@/screens/favorites";
 import Cart from "@/screens/cart";
 import Notifications from "@/screens/notifications";
@@ -10,12 +10,14 @@ import FavoriteIcon from "@/assets/images/navigation/favorite.svg"
 import CartIcon from "@/assets/images/navigation/cart.svg"
 import NotificationIcon from "@/assets/images/navigation/notifications.svg"
 import ProfileIcon from "@/assets/images/navigation/user.svg"
+import DrawerIcon from "@/assets/images/navigation/drawer.svg"
 import BottomTabsBackground from "@/assets/images/navigation/bottomTabsBackground.svg"
 import {SMALL_ICON_SIZE, FOCUSED_ICON_SIZE, IS_LARGE_SCREEN, SCREEN_WIDTH} from "@/constants/sizes";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
-import {Platform, StyleSheet, TouchableOpacity, View} from "react-native";
+import {Platform, Pressable, StyleSheet, TouchableOpacity, View} from "react-native";
 import {spaces} from "@/constants/spaces";
 import {radius} from "@/constants/radius";
+import {DrawerNavigationProp} from "@react-navigation/drawer";
 
 const Tabs = createBottomTabNavigator();
 
@@ -29,7 +31,7 @@ export default function BottomTabsNavigator() {
 
     return (
         <Tabs.Navigator
-            screenOptions={{
+            screenOptions={({navigation}) => ({
                 tabBarStyle: {
                     backgroundColor: colors.LIGHT,
                     height: originalHeight,
@@ -43,7 +45,10 @@ export default function BottomTabsNavigator() {
                     transform: [{ translateY: -SMALL_ICON_SIZE / 4 }],
                 },
                 tabBarButton: (props) => (
-                    <TouchableOpacity {...props} activeOpacity={1} />
+                    <TouchableOpacity
+                        {...props}
+                        activeOpacity={1}
+                    />
                 ),
                 tabBarShowLabel: false,
                 tabBarActiveTintColor: colors.BLUE,
@@ -56,12 +61,21 @@ export default function BottomTabsNavigator() {
                             viewBox={`0 0 ${originalWidth} ${originalHeight}`}
                         />
                     </View>
+                ),
+                headerTitleAlign: "center",
+                headerLeft: () => (
+                    <Pressable
+                        style={styles.drawerIconContainer}
+                        onPress={() => navigation.getParent<DrawerNavigationProp<any>>().openDrawer()}
+                    >
+                        <DrawerIcon/>
+                    </Pressable>
                 )
-            }}
+            })}
         >
             <Tabs.Screen
                 name={"HomeStack"}
-                component={StackNavigator}
+                component={HomeStackNavigator}
                 options={{
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => {
@@ -74,7 +88,7 @@ export default function BottomTabsNavigator() {
                 }}
             />
             <Tabs.Screen
-                name={"Favorites"}
+                name={"Favoris"}
                 component={Favorites}
                 options={{
                     tabBarIcon: ({ color, focused }) => {
@@ -107,6 +121,7 @@ export default function BottomTabsNavigator() {
                 name={"Notifications"}
                 component={Notifications}
                 options={{
+                    // headerShown: false,
                     tabBarIcon: ({ color, focused }) => {
                         return <NotificationIcon
                             width={focused ? FOCUSED_ICON_SIZE : SMALL_ICON_SIZE}
