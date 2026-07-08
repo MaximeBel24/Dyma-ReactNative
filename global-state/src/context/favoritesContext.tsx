@@ -1,4 +1,4 @@
-import React, {createContext, PropsWithChildren, useState} from "react";
+import React, {createContext, useState} from "react";
 
 interface FavoritesContextType {
     picturesIds: string[];
@@ -9,8 +9,8 @@ interface FavoritesContextType {
 // Créer le context
 export const FavoritesContext = createContext<FavoritesContextType>({
     picturesIds: [],
-    addFavorite: () => {},
-    removeFavorite: () => {},
+    addFavorite: (id) => {},
+    removeFavorite: (id) => {},
 });
 
 interface FavoritesProviderProps {

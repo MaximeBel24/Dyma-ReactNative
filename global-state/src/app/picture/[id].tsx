@@ -6,13 +6,26 @@ import {useContext} from "react";
 import {FavoritesContext} from "@/context/favoritesContext";
 
 export default function PictureDetails() {
+
     const { id } = useLocalSearchParams<{ id: string }>();
     const picture = pictures.find((p) => p.id === id);
 
     // Nouvelle façon de consommer le context
     const favoritesCtx = useContext(FavoritesContext);
 
-    console.log( favoritesCtx );
+    // console.log( favoritesCtx );
+
+    // Savoir si l'élément est dans le tableau picturesIds
+    const isFavorite: boolean = favoritesCtx.picturesIds.includes(id);
+
+    // Ajout / retrait d'un élément
+    const toggleFavoriteStatus = () => {
+        if (!isFavorite) {
+            favoritesCtx.addFavorite(id);
+        } else {
+            favoritesCtx.removeFavorite(id);
+        }
+    }
 
     if (!picture) {
         return (
@@ -27,12 +40,19 @@ export default function PictureDetails() {
             <Stack.Screen
                 options={{
                     headerRight: () => (
-                        <MaterialIcons name="favorite-outline" size={24} color="black" />
+                        <MaterialIcons
+                             // Modifie l'icon du header en fonction de isFavorite
+                            name={!isFavorite ? "favorite-outline" : "favorite"}
+                            size={24}
+                            color={"red"}
+                            onPress={toggleFavoriteStatus}
+                        />
                     ),
                 }}
             />
 
-            {/*Ancienne façon de consommer le context*/}
+            {/*  Ancienne façon de consommer le context  */}
+
             {/*<FavoritesContext.Consumer>*/}
             {/*    {(ctx) => {*/}
             {/*        console.log(ctx);*/}
