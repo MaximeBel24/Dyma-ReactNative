@@ -1,18 +1,23 @@
 import {FlatList, Pressable, Image, StyleSheet, ListRenderItem} from "react-native";
 import { Link } from "expo-router";
 import {Picture, pictures} from "@/data/data";
-import {useContext} from "react";
-import {FavoritesContext} from "@/context/favoritesContext";
 import {MaterialIcons} from "@expo/vector-icons";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/store";
 
 export default function Index() {
 
-    const favoritesCtx = useContext(FavoritesContext);
+    // const favoritesCtx = useContext(FavoritesContext); (REACT CONTEXT)
+
+    const favoritesIds = useSelector((state: RootState) => state.favorites.picturesIds);
 
     const renderItem: ListRenderItem<Picture> = ({ item }) => {
 
-        // Vérifie si l'id de chaque item se trouve dans le tableau picturesIds du Context
-        const isFavorite = favoritesCtx.picturesIds.includes(item.id);
+        // Vérifie si l'id de chaque item se trouve dans le tableau picturesIds du Context(REACT CONTEXT)
+        // const isFavorite = favoritesCtx.picturesIds.includes(item.id);
+
+
+        const isFavorite = favoritesIds.includes(item.id);
 
         return (
             <Link href={{ pathname: "/picture/[id]", params: { id: item.id } }} asChild>

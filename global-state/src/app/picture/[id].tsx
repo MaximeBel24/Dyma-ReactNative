@@ -2,28 +2,47 @@ import { Image, View, Text, StyleSheet } from "react-native";
 import { useLocalSearchParams, Stack } from "expo-router";
 import { MaterialIcons } from "@expo/vector-icons";
 import { pictures } from "@/data/data";
-import {useContext} from "react";
-import {FavoritesContext} from "@/context/favoritesContext";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "@/store/store";
+import {addFavorite, removeFavorite} from "@/store/slices/favoritesSlice";
 
 export default function PictureDetails() {
 
     const { id } = useLocalSearchParams<{ id: string }>();
     const picture = pictures.find((p) => p.id === id);
 
-    // Nouvelle façon de consommer le context
-    const favoritesCtx = useContext(FavoritesContext);
+    // Nouvelle façon de consommer le context (REACT CONTEXT)
+    // const favoritesCtx = useContext(FavoritesContext);
 
-    // console.log( favoritesCtx );
+    // Savoir si l'élément est dans le tableau picturesIds (REACT CONTEXT)
+    // const isFavorite: boolean = favoritesCtx.picturesIds.includes(id);
 
-    // Savoir si l'élément est dans le tableau picturesIds
-    const isFavorite: boolean = favoritesCtx.picturesIds.includes(id);
 
-    // Ajout / retrait d'un élément
+
+    // Ajout / retrait d'un élément (REACT CONTEXT)
+    // const toggleFavoriteStatus = () => {
+    //     if (!isFavorite) {
+    //         favoritesCtx.addFavorite(id);
+    //     } else {
+    //         favoritesCtx.removeFavorite(id);
+    //     }
+    // }
+
+
+    // hook useDispatch pour accéder aux actions (fonctions de reducers) et les dispatcher dans le store
+    const dispatch = useDispatch();
+
+    // hook Selector pour accéder aux données du store. state contient toute les slices déclarer dans le reducer du store
+    const favoritesIds = useSelector((state: RootState) => state.favorites.picturesIds);
+    const isFavorite = favoritesIds.includes(id);
+
     const toggleFavoriteStatus = () => {
         if (!isFavorite) {
-            favoritesCtx.addFavorite(id);
+            // action du store
+            dispatch(addFavorite(id));
         } else {
-            favoritesCtx.removeFavorite(id);
+            // action du store
+            dispatch(removeFavorite(id));
         }
     }
 
