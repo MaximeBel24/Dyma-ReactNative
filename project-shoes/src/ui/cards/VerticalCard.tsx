@@ -1,5 +1,5 @@
 import {View, StyleSheet, Image, Platform} from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import {AntDesign, Entypo} from "@expo/vector-icons";
 import {Shoe} from "@/data/shoes";
 import TextMediumS from "@/ui/texts/TextMediumS";
 import TextBoldL from "@/ui/texts/TextBoldL";
@@ -7,16 +7,17 @@ import TextMediumM from "@/ui/texts/TextMediumM";
 import {colors} from "@/constants/colors";
 import {radius} from "@/constants/radius";
 import {spaces} from "@/constants/spaces";
-import {IS_LARGE_SCREEN, SCREEN_WIDTH} from "@/constants/sizes";
+import {IS_LARGE_SCREEN, SCREEN_WIDTH, SMALL_ICON_SIZE} from "@/constants/sizes";
 import Touchable from "@/ui/touchable/Touchable.android";
 
 interface VerticalCardProps {
     item: Shoe;
     isListScreen?: boolean;
     onPress: () => void;
+    isFavorite?: boolean;
 }
 
-export default function VerticalCard({ item, isListScreen = false, onPress }: VerticalCardProps) {
+export default function VerticalCard({ item, isListScreen = false, onPress, isFavorite }: VerticalCardProps) {
 
     const shoeColors = item.items.map((elem) => elem.color);
 
@@ -24,6 +25,15 @@ export default function VerticalCard({ item, isListScreen = false, onPress }: Ve
         <View style={styles.container}>
             <Touchable onPress={onPress}>
                 <View style={styles.touchableContainer}>
+                    {isFavorite ? (
+                        <Entypo
+                            name={"star"}
+                            size={SMALL_ICON_SIZE}
+                            color={colors.BLUE}
+                            style={styles.favoriteIcon}
+                        />
+                    ) : null}
+
                     <View style={styles.imageContainer}>
                         <Image source={item.items[0].image} style={styles.image} />
                     </View>
@@ -84,6 +94,11 @@ const styles = StyleSheet.create({
         height: "100%",
         padding: spaces.S,
         paddingVertical: 2
+    },
+    favoriteIcon: {
+        position: "absolute",
+        top: spaces.M,
+        left: spaces.M
     },
     imageContainer: {
         flex: 1,

@@ -6,11 +6,13 @@ import ListSection from "@/components/home/listSection/ListSection";
 import NewsSection from "@/components/home/newsSection/NewsSection";
 import {useState} from "react";
 import ScrollView = Animated.ScrollView;
+import {useBottomTabBarHeight} from "@react-navigation/bottom-tabs";
 
 export default function HomeScreen() {
 
     const [inputValue, setInputValue] = useState<string>("");
     const [selectedBrand, setSelectedBrand] = useState<string>("nike");
+    const tabBarHeight = useBottomTabBarHeight();
 
     return (
         <SafeAreaView style={styles.container}>
@@ -19,7 +21,7 @@ export default function HomeScreen() {
             {/*    style={{ width: "100%", backgroundColor: "#000000"}}*/}
             {/*/>*/}
             <ScrollView
-                contentContainerStyle={styles.scrollViewContainer}
+                contentContainerStyle={[styles.scrollViewContainer, { paddingBottom: tabBarHeight }]}
                 bounces={false}
             >
                 <SearchSection

@@ -46,6 +46,7 @@ export default function Details() {
                         name={data!.name}
                         price={data!.price}
                         description={data!.description}
+                        id={id}
                     />
                     <Gallery
                         images={images}

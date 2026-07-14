@@ -26,7 +26,11 @@ export default function BottomTabsLayout() {
         <Tabs
             screenOptions={({ navigation }) => ({
                 tabBarStyle: {
-                    backgroundColor: colors.LIGHT,
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: "transparent",
                     height: originalHeight,
                     marginBottom: insets.bottom / 6,
                     paddingTop: Platform.select({ android: 20, ios: insets.bottom }),
@@ -52,6 +56,8 @@ export default function BottomTabsLayout() {
                         />
                     </View>
                 ),
+                headerStyle: { backgroundColor: colors.LIGHT },
+                headerShadowVisible: false,
                 headerTitleAlign: "center",
                 headerLeft: () => (
                     <Pressable
@@ -79,6 +85,7 @@ export default function BottomTabsLayout() {
             <Tabs.Screen
                 name={"favorites"}
                 options={{
+                    title: "Favoris",
                     tabBarIcon: ({ color, focused }) => {
                         return <FavoriteIcon
                             width={focused ? FOCUSED_ICON_SIZE : SMALL_ICON_SIZE}
@@ -91,6 +98,7 @@ export default function BottomTabsLayout() {
             <Tabs.Screen
                 name={"cart"}
                 options={{
+                    title: "Panier",
                     tabBarIcon: ({ color, focused }) => {
                         return (
                             <View style={[styles.cartContainer, focused ? styles.activeCart : styles.inactiveCart]}>
@@ -107,7 +115,7 @@ export default function BottomTabsLayout() {
             <Tabs.Screen
                 name={"notifications"}
                 options={{
-                    // headerShown: false,
+                    title: "Notifications",
                     tabBarIcon: ({ color, focused }) => {
                         return <NotificationIcon
                             width={focused ? FOCUSED_ICON_SIZE : SMALL_ICON_SIZE}
@@ -120,6 +128,7 @@ export default function BottomTabsLayout() {
             <Tabs.Screen
                 name={"profile"}
                 options={{
+                    title: "Profil",
                     tabBarIcon: ({ color, focused }) => {
                         return <ProfileIcon
                             width={focused ? FOCUSED_ICON_SIZE : SMALL_ICON_SIZE}

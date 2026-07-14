@@ -32,17 +32,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/nike/air-max-drift-black.png"),
+                        image: require("../../assets/images/nike/air-max-drift-black.png"),
                         sizes: [38, 40, 42, 43, 44],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/nike/air-max-drift-grey.png"),
+                        image: require("../../assets/images/nike/air-max-drift-grey.png"),
                         sizes: [38, 39, 40, 41, 42, 43, 44],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/nike/air-max-drift-red.png"),
+                        image: require("../../assets/images/nike/air-max-drift-red.png"),
                         sizes: [40, 42, 43],
                     },
                 ],
@@ -57,17 +57,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/nike/air-max-gore-tex-black.png"),
+                        image: require("../../assets/images/nike/air-max-gore-tex-black.png"),
                         sizes: [37, 38, 39, 40, 41, 42, 43, 44],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/nike/air-max-gore-tex-grey.png"),
+                        image: require("../../assets/images/nike/air-max-gore-tex-grey.png"),
                         sizes: [37, 38, 41, 42, 43],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/nike/air-max-gore-tex-red.png"),
+                        image: require("../../assets/images/nike/air-max-gore-tex-red.png"),
                         sizes: [37, 41, 42, 43, 44],
                     },
                 ],
@@ -82,17 +82,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/nike/air-vapormax-black.png"),
+                        image: require("../../assets/images/nike/air-vapormax-black.png"),
                         sizes: [37, 38, 39, 40, 41],
                     },
                     {
                         color: "pink",
-                        image: require("../assets/images/nike/air-vapormax-pink.png"),
+                        image: require("../../assets/images/nike/air-vapormax-pink.png"),
                         sizes: [37, 38, 39, 40, 41],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/nike/air-vapormax-red.png"),
+                        image: require("../../assets/images/nike/air-vapormax-red.png"),
                         sizes: [37, 38, 39],
                     },
                 ],
@@ -107,7 +107,7 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "grey",
-                        image: require("../assets/images/nike/p-6000.png"),
+                        image: require("../../assets/images/nike/p-6000.png"),
                         sizes: [37, 38, 39, 41],
                     },
                 ],
@@ -123,7 +123,7 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "blue",
-                        image: require("../assets/images/nike/pegasus.png"),
+                        image: require("../../assets/images/nike/pegasus.png"),
                         sizes: [37, 39, 41, 42, 43],
                     },
                 ],
@@ -138,17 +138,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/nike/romaleos-4-black.png"),
+                        image: require("../../assets/images/nike/romaleos-4-black.png"),
                         sizes: [37, 39, 41, 42, 43],
                     },
                     {
                         color: "gold",
-                        image: require("../assets/images/nike/romaleos-4-gold.png"),
+                        image: require("../../assets/images/nike/romaleos-4-gold.png"),
                         sizes: [37, 39, 42, 43, 44],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/nike/romaleos-4-white.png"),
+                        image: require("../../assets/images/nike/romaleos-4-white.png"),
                         sizes: [37, 38, 39, 40, 41, 42, 43],
                     },
                 ],
@@ -168,12 +168,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/adidas/adipower-black.png"),
+                        image: require("../../assets/images/adidas/adipower-black.png"),
                         sizes: [37, 39, 40, 41, 42, 43],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/adidas/adipower-white.png"),
+                        image: require("../../assets/images/adidas/adipower-white.png"),
                         sizes: [39, 40, 41, 42, 43],
                     },
                 ],
@@ -188,7 +188,7 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/adidas/adistar.png"),
+                        image: require("../../assets/images/adidas/adistar.png"),
                         sizes: [40, 41, 42, 43, 45],
                     },
                 ],
@@ -203,17 +203,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/adidas/amplimove-black.png"),
+                        image: require("../../assets/images/adidas/amplimove-black.png"),
                         sizes: [37, 38, 40, 41, 42],
                     },
                     {
                         color: "pink",
-                        image: require("../assets/images/adidas/amplimove-pink.png"),
+                        image: require("../../assets/images/adidas/amplimove-pink.png"),
                         sizes: [37, 38, 39, 41],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/adidas/amplimove-white.png"),
+                        image: require("../../assets/images/adidas/amplimove-white.png"),
                         sizes: [37, 38, 39, 40],
                     },
                 ],
@@ -228,17 +228,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "green",
-                        image: require("../assets/images/adidas/dropset-2-green.png"),
+                        image: require("../../assets/images/adidas/dropset-2-green.png"),
                         sizes: [40, 41, 42, 43, 44],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/adidas/dropset-2-grey.png"),
+                        image: require("../../assets/images/adidas/dropset-2-grey.png"),
                         sizes: [40, 41, 42, 43, 44],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/adidas/dropset-2-red.png"),
+                        image: require("../../assets/images/adidas/dropset-2-red.png"),
                         sizes: [42, 43, 44],
                     },
                 ],
@@ -253,17 +253,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/adidas/galaxy-6-black.png"),
+                        image: require("../../assets/images/adidas/galaxy-6-black.png"),
                         sizes: [40, 41, 42, 43, 44],
                     },
                     {
                         color: "blue",
-                        image: require("../assets/images/adidas/galaxy-6-blue.png"),
+                        image: require("../../assets/images/adidas/galaxy-6-blue.png"),
                         sizes: [38, 40, 41, 42, 43, 44],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/adidas/galaxy-6-red.png"),
+                        image: require("../../assets/images/adidas/galaxy-6-red.png"),
                         sizes: [39, 42, 43, 44],
                     },
                 ],
@@ -279,17 +279,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/adidas/gazelle-black.png"),
+                        image: require("../../assets/images/adidas/gazelle-black.png"),
                         sizes: [40, 41, 43, 44],
                     },
                     {
                         color: "green",
-                        image: require("../assets/images/adidas/gazelle-green.png"),
+                        image: require("../../assets/images/adidas/gazelle-green.png"),
                         sizes: [40, 41, 42, 43, 44],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/adidas/gazelle-grey.png"),
+                        image: require("../../assets/images/adidas/gazelle-grey.png"),
                         sizes: [40, 41, 42, 43, 45],
                     },
                 ],
@@ -304,17 +304,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "blue",
-                        image: require("../assets/images/adidas/sl72rs-blue.png"),
+                        image: require("../../assets/images/adidas/sl72rs-blue.png"),
                         sizes: [38, 40, 41, 42, 43, 44],
                     },
                     {
                         color: "green",
-                        image: require("../assets/images/adidas/sl72rs-green.png"),
+                        image: require("../../assets/images/adidas/sl72rs-green.png"),
                         sizes: [38, 40, 41, 42, 43, 44],
                     },
                     {
                         color: "yellow",
-                        image: require("../assets/images/adidas/sl72rs-yellow.png"),
+                        image: require("../../assets/images/adidas/sl72rs-yellow.png"),
                         sizes: [38, 40, 41, 42, 43, 44],
                     },
                 ],
@@ -334,17 +334,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "white",
-                        image: require("../assets/images/puma/bmw-white.png"),
+                        image: require("../../assets/images/puma/bmw-white.png"),
                         sizes: [40, 43],
                     },
                     {
                         color: "black",
-                        image: require("../assets/images/puma/bmw-black.png"),
+                        image: require("../../assets/images/puma/bmw-black.png"),
                         sizes: [40, 42, 43],
                     },
                     {
                         color: "blue",
-                        image: require("../assets/images/puma/bmw-blue.png"),
+                        image: require("../../assets/images/puma/bmw-blue.png"),
                         sizes: [40, 41, 42, 43, 45],
                     },
                 ],
@@ -359,7 +359,7 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "grey",
-                        image: require("../assets/images/puma/rider-white.png"),
+                        image: require("../../assets/images/puma/rider-white.png"),
                         sizes: [37, 38, 39, 40, 41, 42, 43, 44],
                     },
                 ],
@@ -374,12 +374,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "grey",
-                        image: require("../assets/images/puma/slipstream-grey.png"),
+                        image: require("../../assets/images/puma/slipstream-grey.png"),
                         sizes: [37, 38, 39, 42, 43, 44],
                     },
                     {
                         color: "black",
-                        image: require("../assets/images/puma/slipstream-black.png"),
+                        image: require("../../assets/images/puma/slipstream-black.png"),
                         sizes: [37, 40, 42, 43, 44],
                     },
                 ],
@@ -395,12 +395,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/puma/soft-ride-black.png"),
+                        image: require("../../assets/images/puma/soft-ride-black.png"),
                         sizes: [39, 42, 43, 44],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/puma/soft-ride-white.png"),
+                        image: require("../../assets/images/puma/soft-ride-white.png"),
                         sizes: [39, 41, 42, 43, 44],
                     },
                 ],
@@ -415,17 +415,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/puma/suede-black.png"),
+                        image: require("../../assets/images/puma/suede-black.png"),
                         sizes: [38, 39, 42, 43, 44],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/puma/suede-red.png"),
+                        image: require("../../assets/images/puma/suede-red.png"),
                         sizes: [38, 39, 42, 43, 44],
                     },
                     {
                         color: "blue",
-                        image: require("../assets/images/puma/suede-blue.png"),
+                        image: require("../../assets/images/puma/suede-blue.png"),
                         sizes: [38, 39, 40, 41, 42, 43, 44],
                     },
                 ],
@@ -440,17 +440,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "red",
-                        image: require("../assets/images/puma/trinity-red.png"),
+                        image: require("../../assets/images/puma/trinity-red.png"),
                         sizes: [38, 39, 42, 43, 44],
                     },
                     {
                         color: "green",
-                        image: require("../assets/images/puma/trinity-green.png"),
+                        image: require("../../assets/images/puma/trinity-green.png"),
                         sizes: [38, 39, 42, 43, 44, 45],
                     },
                     {
                         color: "black",
-                        image: require("../assets/images/puma/trinity-black.png"),
+                        image: require("../../assets/images/puma/trinity-black.png"),
                         sizes: [38, 39, 40, 42, 43, 44, 45],
                     },
                 ],
@@ -470,12 +470,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/reebok/bb-400-black.png"),
+                        image: require("../../assets/images/reebok/bb-400-black.png"),
                         sizes: [42, 43, 44, 45],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/reebok/bb-400-white.png"),
+                        image: require("../../assets/images/reebok/bb-400-white.png"),
                         sizes: [42, 45],
                     },
                 ],
@@ -491,12 +491,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "blue",
-                        image: require("../assets/images/reebok/classic-nylon-blue.png"),
+                        image: require("../../assets/images/reebok/classic-nylon-blue.png"),
                         sizes: [41, 42, 43, 44, 45],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/reebok/classic-nylon-red.png"),
+                        image: require("../../assets/images/reebok/classic-nylon-red.png"),
                         sizes: [41, 42, 45],
                     },
                 ],
@@ -511,17 +511,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "pink",
-                        image: require("../assets/images/reebok/club-c-pink.png"),
+                        image: require("../../assets/images/reebok/club-c-pink.png"),
                         sizes: [37, 38, 39],
                     },
                     {
                         color: "brown",
-                        image: require("../assets/images/reebok/club-c-brown.png"),
+                        image: require("../../assets/images/reebok/club-c-brown.png"),
                         sizes: [37, 38, 39, 40],
                     },
                     {
                         color: "green",
-                        image: require("../assets/images/reebok/club-c-green.png"),
+                        image: require("../../assets/images/reebok/club-c-green.png"),
                         sizes: [37, 40],
                     },
                 ],
@@ -536,12 +536,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "brown",
-                        image: require("../assets/images/reebok/club-c-ground-brown.png"),
+                        image: require("../../assets/images/reebok/club-c-ground-brown.png"),
                         sizes: [37, 39, 40, 42, 45],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/reebok/club-c-ground-grey.png"),
+                        image: require("../../assets/images/reebok/club-c-ground-grey.png"),
                         sizes: [37, 38, 39, 40, 42, 45],
                     },
                 ],
@@ -556,17 +556,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/reebok/glide-ripple-black.png"),
+                        image: require("../../assets/images/reebok/glide-ripple-black.png"),
                         sizes: [40, 42, 45],
                     },
                     {
                         color: "blue",
-                        image: require("../assets/images/reebok/glide-ripple-blue.png"),
+                        image: require("../../assets/images/reebok/glide-ripple-blue.png"),
                         sizes: [40, 41, 42, 45],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/reebok/glide-ripple-grey.png"),
+                        image: require("../../assets/images/reebok/glide-ripple-grey.png"),
                         sizes: [40, 42, 43, 44, 45],
                     },
                 ],
@@ -581,17 +581,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "grey",
-                        image: require("../assets/images/reebok/nano-x3-grey.png"),
+                        image: require("../../assets/images/reebok/nano-x3-grey.png"),
                         sizes: [40, 42, 45],
                     },
                     {
                         color: "black",
-                        image: require("../assets/images/reebok/nano-x3-black.png"),
+                        image: require("../../assets/images/reebok/nano-x3-black.png"),
                         sizes: [40, 42, 44, 45],
                     },
                     {
                         color: "brown",
-                        image: require("../assets/images/reebok/nano-x3-brown.png"),
+                        image: require("../../assets/images/reebok/nano-x3-brown.png"),
                         sizes: [40, 42, 43, 44, 45],
                     },
                 ],
@@ -606,17 +606,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/reebok/nano-x4-black.png"),
+                        image: require("../../assets/images/reebok/nano-x4-black.png"),
                         sizes: [37, 39, 40],
                     },
                     {
                         color: "yellow",
-                        image: require("../assets/images/reebok/nano-x4-yellow.png"),
+                        image: require("../../assets/images/reebok/nano-x4-yellow.png"),
                         sizes: [37, 38, 39, 40],
                     },
                     {
                         color: "brown",
-                        image: require("../assets/images/reebok/nano-x4-brown.png"),
+                        image: require("../../assets/images/reebok/nano-x4-brown.png"),
                         sizes: [37, 38],
                     },
                 ],
@@ -631,12 +631,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/reebok/royal-black.png"),
+                        image: require("../../assets/images/reebok/royal-black.png"),
                         sizes: [37, 39, 40, 43, 45],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/reebok/royal-white.png"),
+                        image: require("../../assets/images/reebok/royal-white.png"),
                         sizes: [37, 39, 40, 41, 42, 43, 45],
                     },
                 ],
@@ -656,7 +656,7 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "blue",
-                        image: require("../assets/images/under-armour/curry.png"),
+                        image: require("../../assets/images/under-armour/curry.png"),
                         sizes: [42, 43],
                     },
                 ],
@@ -672,17 +672,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "violet",
-                        image: require("../assets/images/under-armour/flow-velocity-violet.png"),
+                        image: require("../../assets/images/under-armour/flow-velocity-violet.png"),
                         sizes: [37, 39],
                     },
                     {
                         color: "green",
-                        image: require("../assets/images/under-armour/flow-velocity-green.png"),
+                        image: require("../../assets/images/under-armour/flow-velocity-green.png"),
                         sizes: [37, 38, 39],
                     },
                     {
                         color: "black",
-                        image: require("../assets/images/under-armour/flow-velocity-black.png"),
+                        image: require("../../assets/images/under-armour/flow-velocity-black.png"),
                         sizes: [39],
                     },
                 ],
@@ -697,12 +697,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "yellow",
-                        image: require("../assets/images/under-armour/infinite-elite-yellow.png"),
+                        image: require("../../assets/images/under-armour/infinite-elite-yellow.png"),
                         sizes: [37, 39, 41, 44],
                     },
                     {
                         color: "violet",
-                        image: require("../assets/images/under-armour/infinite-elite-violet.png"),
+                        image: require("../../assets/images/under-armour/infinite-elite-violet.png"),
                         sizes: [37, 39, 41, 42, 44],
                     },
                 ],
@@ -717,12 +717,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/under-armour/summit-trek-black.png"),
+                        image: require("../../assets/images/under-armour/summit-trek-black.png"),
                         sizes: [41, 42, 44, 45],
                     },
                     {
                         color: "white",
-                        image: require("../assets/images/under-armour/summit-trek-white.png"),
+                        image: require("../../assets/images/under-armour/summit-trek-white.png"),
                         sizes: [42, 44, 45],
                     },
                 ],
@@ -737,12 +737,12 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/under-armour/reign-lifter-black.png"),
+                        image: require("../../assets/images/under-armour/reign-lifter-black.png"),
                         sizes: [40, 42, 43, 44, 45],
                     },
                     {
                         color: "red",
-                        image: require("../assets/images/under-armour/reign-lifter-red.png"),
+                        image: require("../../assets/images/under-armour/reign-lifter-red.png"),
                         sizes: [43, 44, 45],
                     },
                 ],
@@ -757,17 +757,17 @@ export const shoes: BrandStock[] = [
                 items: [
                     {
                         color: "black",
-                        image: require("../assets/images/under-armour/aurora-black.png"),
+                        image: require("../../assets/images/under-armour/aurora-black.png"),
                         sizes: [37, 38, 39],
                     },
                     {
                         color: "grey",
-                        image: require("../assets/images/under-armour/aurora-grey.png"),
+                        image: require("../../assets/images/under-armour/aurora-grey.png"),
                         sizes: [37, 38, 39, 40],
                     },
                     {
                         color: "pink",
-                        image: require("../assets/images/under-armour/aurora-pink.png"),
+                        image: require("../../assets/images/under-armour/aurora-pink.png"),
                         sizes: [37, 38],
                     },
                 ],
