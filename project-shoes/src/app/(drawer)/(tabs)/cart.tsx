@@ -26,7 +26,7 @@ export default function Cart() {
                data={shoes}
                contentContainerStyle={{ paddingBottom: tabBarHeight, flexGrow: 1}}
                showsVerticalScrollIndicator={false}
-               keyExtractor={({ id }) => id}
+               keyExtractor={( item ) => `${item.id}-${item.size}`}
                renderItem={({ item }) => <ListItem item={item} /> }
                ItemSeparatorComponent={() => <ItemSeparator height={spaces.L} />}
                // numColumns={IS_LARGE_SCREEN ? 2 : 1}

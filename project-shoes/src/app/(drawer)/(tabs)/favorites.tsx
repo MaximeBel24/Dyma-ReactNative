@@ -1,6 +1,5 @@
 import {View, StyleSheet, FlatList} from "react-native";
 import {Shoe, shoes} from "@/data/shoes";
-import {SCREEN_HEIGHT} from "@/constants/sizes";
 import {spaces} from "@/constants/spaces";
 import VerticalCard from "@/ui/cards/VerticalCard";
 import ItemSeparator from "@/ui/separators/ItemSeparator";

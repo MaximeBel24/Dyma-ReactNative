@@ -7,13 +7,21 @@ import {ICON_SIZE} from "@/constants/sizes";
 import {spaces} from "@/constants/spaces";
 import {colors} from "@/constants/colors";
 import {radius} from "@/constants/radius";
-import {Shoe} from "@/store/slices/cartSlice";
+import {decreaseQuantity, increaseQuantity, removeShoesFromCart, Shoe} from "@/store/slices/cartSlice";
+import {useDispatch} from "react-redux";
 
 interface ListItemProps {
     item: Shoe
 }
 
 export default function ListItem({ item }: ListItemProps) {
+
+    const dispatch = useDispatch();
+
+    const decreaseShoesQuantity = () => dispatch(decreaseQuantity(item));
+    const increaseShoesQuantity = () => dispatch(increaseQuantity(item));
+    const removeShoes = () => dispatch(removeShoesFromCart(item));
+
     return (
         <View style={styles.container}>
             <View style={styles.leftContainer}>
@@ -29,12 +37,17 @@ export default function ListItem({ item }: ListItemProps) {
                                 styles.operationSignContainer,
                                 styles.substractSignContainer,
                             ]}
+                            onPress={decreaseShoesQuantity}
                         >
                             <TextBoldXL style={styles.minusText}>-</TextBoldXL>
                         </Pressable>
                         <TextBoldM style={styles.quantityText}>{item.quantity}</TextBoldM>
                         <Pressable
-                            style={[styles.operationSignContainer, styles.addSignContainer]}
+                            style={[
+                                styles.operationSignContainer,
+                                styles.addSignContainer
+                            ]}
+                            onPress={increaseShoesQuantity}
                         >
                             <TextBoldXL style={styles.plusText}>+</TextBoldXL>
                         </Pressable>
@@ -49,6 +62,7 @@ export default function ListItem({ item }: ListItemProps) {
                     size={ICON_SIZE}
                     color={colors.GREY}
                     suppressHighlighting={true}
+                    onPress={removeShoes }
                 />
             </View>
         </View>
