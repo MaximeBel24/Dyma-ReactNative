@@ -35,7 +35,7 @@ export default function Favorites() {
     )
 
     return (
-        <View style={[styles.container, {paddingBottom: tabBarHeight}]}>
+        <View style={styles.container}>
             <FlatList
                 data={data}
                 keyExtractor={(item) => item.id}
@@ -43,7 +43,7 @@ export default function Favorites() {
                 showsVerticalScrollIndicator={false}
                 numColumns={2}
                 ItemSeparatorComponent={() => <ItemSeparator height={spaces.L} />}
-                contentContainerStyle={styles.contentStyle}
+                contentContainerStyle={{ paddingBottom: tabBarHeight, flexGrow: 1}}
                 ListEmptyComponent={
                     <View style={styles.emptyListContainer}>
                         <TextBoldL>
@@ -67,10 +67,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingVertical: spaces.L,
         backgroundColor: colors.LIGHT
-    },
-    contentStyle: {
-        paddingBottom: 106,
-        flexGrow: 1
     },
     cardContainer: {
         flex: 1,

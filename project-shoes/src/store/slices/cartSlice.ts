@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ImageSourcePropType} from "react-native";
 
-interface Shoe {
+export interface Shoe {
     id: string;
     name: string;
     image: ImageSourcePropType;
