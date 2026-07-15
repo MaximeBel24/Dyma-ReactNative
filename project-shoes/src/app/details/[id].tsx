@@ -9,8 +9,12 @@ import CustomButton from "@/ui/buttons/CustomButton";
 import {SCREEN_HEIGHT} from "@/constants/sizes";
 import {useEffect, useState} from "react";
 import {Stack, useLocalSearchParams} from "expo-router";
+import {useDispatch} from "react-redux";
+import {addShoesToCart} from "@/store/slices/cartSlice";
 
 export default function Details() {
+
+    const dispatch = useDispatch();
 
     const { id } = useLocalSearchParams<{ id: string }>();
 
@@ -18,12 +22,30 @@ export default function Details() {
         .find((el) => el.stock.find((item) => item.id === id))
         ?.stock.find((item) => item.id === id)
 
+    const brand = shoes
+        .find((el) => el.stock.find((item) => item.id === id))?.brand
+
     const images = data!.items.map((item) => item.image);
 
     const [sizes, setSizes] = useState(data!.items[0].sizes);
 
     const [selectedImage, setSelectedImage] = useState(data?.items[0].image);
     const [selectedSize, setSelectedSize] = useState<number>();
+
+    const addToCart = () => {
+
+        if (selectedSize === undefined) return;
+        if (selectedImage === undefined) return;
+
+        dispatch(addShoesToCart({
+            id: data!.id + Date.now(),
+            name: brand!.charAt(0).toUpperCase() + brand!.slice(1) + " " + data!.name,
+            image: selectedImage,
+            size: selectedSize,
+            price: data!.price,
+            quantity: 1
+        }))
+    }
 
     useEffect(() => {
         const found = data?.items.find((el) => el.image === selectedImage);
@@ -61,7 +83,7 @@ export default function Details() {
                     <View style={styles.btnContainer}>
                         <CustomButton
                             text={"Ajouter au panier"}
-                            onPress={() => console.log("Ajouter au panier")}
+                            onPress={addToCart}
                         />
                     </View>
                     <View style={styles.fixView} />
