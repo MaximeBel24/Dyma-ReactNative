@@ -62,6 +62,22 @@ export default function RootLayout() {
                   }}
               />
 
+              <Stack.Screen
+                  name={"cart"}
+                  options={{
+                      animation: "slide_from_bottom",
+                      title: "Mon panier",
+                      headerLeft: () => (
+                          <Pressable onPress={() => router.back()}>
+                              <Ionicons
+                                  name={"chevron-back"}
+                                  size={24}
+                                  color={colors.DARK}
+                              />
+                          </Pressable>
+                      )
+                  }}
+              />
 
           </Stack>
       </Provider>

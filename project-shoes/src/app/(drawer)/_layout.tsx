@@ -1,7 +1,7 @@
 import { Drawer } from "expo-router/drawer";
 import {colors} from "@/constants/colors";
 import {DrawerContentScrollView, DrawerItem} from "@react-navigation/drawer";
-import {Image, StyleSheet, View} from "react-native";
+import {Image, StyleSheet, View, Text} from "react-native";
 import TextBoldXL from "@/ui/texts/TextBoldXL";
 import {SMALL_ICON_SIZE} from "@/constants/sizes";
 import {MaterialIcons} from "@expo/vector-icons";
@@ -13,6 +13,8 @@ import CartIcon from "@/assets/images/navigation/cart.svg";
 import NotificationsIcon from "@/assets/images/navigation/notifications.svg";
 import ProfileIcon from "@/assets/images/navigation/user.svg";
 import {router, usePathname} from "expo-router";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/store";
 
 export default function DrawerLayout() {
     return (
@@ -43,9 +45,36 @@ const routes = [
     {path: "/profile",       label: "Profil",        icon: ProfileIcon},
 ] as const;
 
+interface LabelProps {
+    shoesInCartCount: number;
+    label: string;
+    isActive: boolean;
+}
+
+function Label ({ shoesInCartCount, label, isActive }: LabelProps) {
+    return shoesInCartCount && label === "Panier" ? (
+        <View style={styles.cartView}>
+            <Text style={[styles.label, { color: colors.BLUE }]}>{label}</Text>
+                <View style={styles.activeCartContainer}>
+                    <Text style={{ color: colors.WHITE }}>{shoesInCartCount}</Text>
+                </View>
+        </View>
+    ) : (
+        <Text
+            style={[
+                styles.label,
+                { color: isActive ? colors.WHITE : colors.GREY}
+            ]}
+        >
+            {label}
+        </Text>
+    )
+}
+
 function CustomDrawerContent() {
 
     const pathname = usePathname();
+    const shoesInCartCount = useSelector((state: RootState) => state.cart.shoes.length);
 
     return (
         <DrawerContentScrollView>
@@ -61,7 +90,13 @@ function CustomDrawerContent() {
             {routes.map(route => (
                 <DrawerItem
                     key={route.path}
-                    label={route.label}
+                    label={() => (
+                        <Label
+                            shoesInCartCount={shoesInCartCount}
+                            label={route.label}
+                            isActive={pathname === route.path}
+                        />
+                    )}
                     icon={() => (
                         <route.icon
                             width={SMALL_ICON_SIZE}
@@ -114,5 +149,17 @@ const styles = StyleSheet.create({
         borderTopColor: colors.GREY,
         paddingTop: spaces.XL,
         marginTop: spaces.XL,
+    },
+    cartView: {
+        flexDirection: 'row',
+    },
+    activeCartContainer: {
+        marginLeft: spaces.M,
+        width: SMALL_ICON_SIZE,
+        height: SMALL_ICON_SIZE,
+        backgroundColor: colors.BLUE,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: radius.FULL,
     }
 })

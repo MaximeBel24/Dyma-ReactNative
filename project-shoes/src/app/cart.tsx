@@ -17,14 +17,13 @@ export default function Cart() {
     const state = useSelector((state: RootState) => state.cart);
     const {shoes, totalAmount} = state;
 
-    const tabBarHeight = useBottomTabBarHeight();
 
 
     return (
         <View style={styles.container}>
            <FlatList
                data={shoes}
-               contentContainerStyle={{ paddingBottom: tabBarHeight, flexGrow: 1}}
+               contentContainerStyle={{ flexGrow: 1 }}
                showsVerticalScrollIndicator={false}
                keyExtractor={( item ) => `${item.id}-${item.size}`}
                renderItem={({ item }) => <ListItem item={item} /> }
@@ -38,7 +37,7 @@ export default function Cart() {
                    </View>
                }
            />
-            <View style={[styles.priceContainer, { marginBottom: tabBarHeight + 10}]}>
+            <View style={[styles.priceContainer]}>
                 <View style={styles.rowContainer}>
                     <TextBoldXL>Sous total</TextBoldXL>
                     <TextBoldXL>{totalAmount} €</TextBoldXL>

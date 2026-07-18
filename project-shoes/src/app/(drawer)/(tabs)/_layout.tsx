@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router"
+import {router, Tabs} from "expo-router"
 import {colors} from "@/constants/colors";
 import {Platform, Pressable, StyleSheet, View} from "react-native";
 import {FOCUSED_ICON_SIZE, IS_LARGE_SCREEN, SCREEN_WIDTH, SMALL_ICON_SIZE} from "@/constants/sizes";
@@ -13,6 +13,8 @@ import FavoriteIcon from "@/assets/images/navigation/favorite.svg";
 import CartIcon from "@/assets/images/navigation/cart.svg";
 import NotificationIcon from "@/assets/images/navigation/notifications.svg";
 import ProfileIcon from "@/assets/images/navigation/user.svg";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/store";
 
 const originalWidth = 375;
 const originalHeight = IS_LARGE_SCREEN ? 212 : 106;
@@ -21,6 +23,7 @@ const aspectRatio = originalWidth / originalHeight;
 export default function BottomTabsLayout() {
 
     const insets = useSafeAreaInsets();
+    const badgeCount = useSelector((state: RootState) => state.cart.shoes.length)
 
     return (
         <Tabs
@@ -96,9 +99,15 @@ export default function BottomTabsLayout() {
                 }}
             />
             <Tabs.Screen
-                name={"cart"}
+                name={"cart-tab"}
                 options={{
-                    title: "Panier",
+                    tabBarBadge: badgeCount ? badgeCount : undefined,
+                    tabBarBadgeStyle : {
+                        backgroundColor: "red",
+                        color: colors.LIGHT,
+                        marginTop: -20,
+                        left: 25
+                    },
                     tabBarIcon: ({ color, focused }) => {
                         return (
                             <View style={[styles.cartContainer, focused ? styles.activeCart : styles.inactiveCart]}>
@@ -109,7 +118,13 @@ export default function BottomTabsLayout() {
                                 />
                             </View>
                         )
-                    }
+                    },
+                }}
+                listeners={{
+                    tabPress: (e) => {
+                        e.preventDefault();
+                        router.push("/cart");
+                    },
                 }}
             />
             <Tabs.Screen
