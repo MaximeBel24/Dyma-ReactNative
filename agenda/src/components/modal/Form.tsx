@@ -4,6 +4,8 @@ import { colors } from "@/constants/colors";
 import Input from "@/components/modal/Input";
 import DateTimePicker from "@/components/modal/DateTimePicker";
 import {useState} from "react";
+import IsOnline from "@/components/modal/IsOnline";
+import CustomBtn from "@/components/modal/CustomBtn";
 
 interface FormProps {
     isFormVisible: boolean;
@@ -13,8 +15,27 @@ interface FormProps {
 const Form = ({ isFormVisible, closeForm }: FormProps) => {
 
     const closeKeyboardHandler = () => Keyboard.dismiss();
+
+    const [title, setTitle] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
+    const [phoneNumber, setPhoneNumber] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+    const [isOnline, setIsOnline] = useState<boolean>(false);
+
+    const onSubmit = () => {
+        console.log({
+            title,
+            location,
+            phoneNumber,
+            description,
+            startDate,
+            endDate,
+            isOnline,
+        });
+        closeForm();
+    };
 
     return (
         <Modal
@@ -36,10 +57,35 @@ const Form = ({ isFormVisible, closeForm }: FormProps) => {
                         suppressHighlighting={true}
                     />
                 </View>
-                <Input label={"Titre"} autoCorrect={false} maxLength={40} />
-                <Input label={"Lieu"} autoCorrect={false} maxLength={40} />
-                <Input label={"Téléphone"} inputMode={"tel"} maxLength={10} />
-                <Input label={"Description"} multiline maxLength={120} />
+                <Input
+                    label={"Titre"}
+                    autoCorrect={false}
+                    maxLength={40}
+                    value={title}
+                    onChangeText={setTitle}
+                />
+                <Input
+                    label={isOnline ? "Url" : "Lieu"}
+                    inputMode={isOnline ? "url" : "text"}
+                    autoCorrect={false}
+                    maxLength={40}
+                    value={location}
+                    onChangeText={setLocation}
+                />
+                <Input
+                    label={"Téléphone"}
+                    inputMode={"tel"}
+                    maxLength={10}
+                    value={phoneNumber}
+                    onChangeText={setPhoneNumber}
+                />
+                <Input
+                    label={"Description"}
+                    multiline
+                    maxLength={120}
+                    value={description}
+                    onChangeText={setDescription}
+                />
                 <DateTimePicker
                     label={"Début"}
                     dateTime={startDate}
@@ -50,6 +96,22 @@ const Form = ({ isFormVisible, closeForm }: FormProps) => {
                     dateTime={endDate}
                     setDateTime={setEndDate}
                 />
+                <IsOnline
+                    isEnabled={isOnline}
+                    setIsEnabled={setIsOnline}
+                />
+                <View style={styles.btnContainer}>
+                    <CustomBtn
+                        text={"Annuler"}
+                        onPress={closeForm}
+                        color={colors.PINK}
+                    />
+                    <CustomBtn
+                        text={"Valider"}
+                        onPress={onSubmit}
+                        color={colors.VIOLET}
+                    />
+                </View>
             </Pressable>
         </Modal>
     );
@@ -74,4 +136,8 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: colors.VIOLET,
     },
+    btnContainer: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+    }
 });
