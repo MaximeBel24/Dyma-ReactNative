@@ -2,6 +2,8 @@ import {Pressable, StyleSheet, Modal, View, Text, Keyboard} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { colors } from "@/constants/colors";
 import Input from "@/components/modal/Input";
+import DateTimePicker from "@/components/modal/DateTimePicker";
+import {useState} from "react";
 
 interface FormProps {
     isFormVisible: boolean;
@@ -11,6 +13,8 @@ interface FormProps {
 const Form = ({ isFormVisible, closeForm }: FormProps) => {
 
     const closeKeyboardHandler = () => Keyboard.dismiss();
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
 
     return (
         <Modal
@@ -18,7 +22,10 @@ const Form = ({ isFormVisible, closeForm }: FormProps) => {
             presentationStyle="formSheet"
             animationType="slide"
         >
-            <Pressable style={styles.formContainer} onPress={closeKeyboardHandler}>
+            <Pressable
+                style={styles.formContainer}
+                onPress={closeKeyboardHandler}
+            >
                 <View style={styles.headerContainer}>
                     <Text style={styles.formTitle}>Nouvel événement</Text>
                     <Feather
@@ -33,7 +40,16 @@ const Form = ({ isFormVisible, closeForm }: FormProps) => {
                 <Input label={"Lieu"} autoCorrect={false} maxLength={40} />
                 <Input label={"Téléphone"} inputMode={"tel"} maxLength={10} />
                 <Input label={"Description"} multiline maxLength={120} />
-
+                <DateTimePicker
+                    label={"Début"}
+                    dateTime={startDate}
+                    setDateTime={setStartDate}
+                />
+                <DateTimePicker
+                    label={"Fin"}
+                    dateTime={endDate}
+                    setDateTime={setEndDate}
+                />
             </Pressable>
         </Modal>
     );
