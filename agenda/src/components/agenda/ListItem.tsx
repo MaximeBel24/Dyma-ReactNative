@@ -1,19 +1,26 @@
-import { View, StyleSheet, Text } from "react-native";
+import {View, StyleSheet, Text, Pressable} from "react-native";
 import { colors } from "@/constants/colors";
 import { getFormattedDate, getFormattedTime } from "@/utils";
 import {AgendaEvent} from "@/store/slices/agendaSlice";
 
 interface ListItemProps {
-    item: AgendaEvent
+    item: AgendaEvent;
+    selectItem: (item: AgendaEvent) => void;
 }
 
-export default function ListItem({ item }: ListItemProps) {
+export default function ListItem({ item, selectItem }: ListItemProps) {
+
+    const selectItemHandler = () => {
+        selectItem(item);
+    }
+
     return (
-        <View
+        <Pressable
             style={[
                 styles.itemContainer,
                 item.isOnline ? styles.onlineItemContainer : undefined,
             ]}
+            onPress={selectItemHandler}
         >
             <View style={styles.rowContainer}>
                 <View style={styles.mainInfosContainer}>
@@ -43,7 +50,7 @@ export default function ListItem({ item }: ListItemProps) {
                     </View>
                 ) : null}
             </View>
-        </View>
+        </Pressable>
     );
 }
 

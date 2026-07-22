@@ -6,6 +6,7 @@ import {RootState} from "@/store/store";
 import ListItem from "@/components/agenda/ListItem";
 import {useState} from "react";
 import Form from "@/components/modal/Form";
+import {AgendaEvent} from "@/store/slices/agendaSlice";
 
 interface HeaderProps {
     openForm: () => void;
@@ -27,8 +28,20 @@ const Header = ({ openForm }: HeaderProps) => (
 export default function AgendaList() {
 
     const agendaItems = useSelector((state: RootState) => state.agenda.events);
+
     const [isFormVisible, setIsFormVisible] = useState<boolean>(false);
-    const closeFormHandler = () => setIsFormVisible(false);
+    const [selectedEvent, setSelectedEvent] = useState<AgendaEvent | undefined>();
+
+    const closeFormHandler = () => {
+        setIsFormVisible(false);
+        setSelectedEvent(undefined);
+    };
+
+    const selectEvent = (event: AgendaEvent) => {
+        setSelectedEvent(event);
+        setIsFormVisible(true);
+    }
+
     const openFormHandler = () => setIsFormVisible(true);
 
     return (
@@ -38,10 +51,14 @@ export default function AgendaList() {
                 keyExtractor={({ id }) => id}
                 ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
                 style={styles.listContainer}
-                renderItem={({ item }) => <ListItem item={item} />}
+                renderItem={({ item }) => <ListItem item={item} selectItem={selectEvent}/>}
                 ListHeaderComponent={<Header openForm={openFormHandler} />}
             />
-            <Form isFormVisible={isFormVisible} closeForm={closeFormHandler} />
+            <Form
+                isFormVisible={isFormVisible}
+                closeForm={closeFormHandler}
+                selectedEvent={selectedEvent}
+            />
         </>
 
     );

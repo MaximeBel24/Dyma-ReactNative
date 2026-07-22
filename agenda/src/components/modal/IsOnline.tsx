@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View, Switch, Platform } from "react-native";
 import { colors } from "@/constants/colors";
-import {Dispatch, SetStateAction} from "react";
 
 interface IsOnlineProps {
     isEnabled: boolean;
-    setIsEnabled: Dispatch<SetStateAction<boolean>>;
+    setIsEnabled: (isEnabled: boolean) => void;
 }
 
 const IsOnline = ({ isEnabled, setIsEnabled }: IsOnlineProps) => {
 
-    const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+    const toggleSwitch = () => setIsEnabled(!isEnabled);
 
     return (
         <View style={styles.container}>
